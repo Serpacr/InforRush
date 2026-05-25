@@ -63,7 +63,7 @@ pipeline {
             steps {
                 echo '🐳 Construindo imagens Docker...'
                 dir('inforush') {
-                    sh 'docker-compose build'
+                    sh 'docker compose build'
                 }
             }
         }
