@@ -75,4 +75,4 @@ release/* → preparação de versão
 
 | Nome | RA |
 |------|----|
-| (Seu nome) | (Seu RA) |
+| Caio Serpa | 2024110220047 |
