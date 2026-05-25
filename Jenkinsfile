@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('backend') {
+                dir('inforush') {
                     sh 'mvn clean install -U -DskipTests'
                 }
             }
@@ -28,7 +28,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('backend') {
+                dir('inforush') {
                     sh 'mvn test -B'
                 }
             }
@@ -36,7 +36,7 @@ pipeline {
 
         stage('SonarQube') {
             steps {
-                dir('backend') {
+                dir('inforush') {
                     sh """
                     mvn clean verify sonar:sonar \
                     -Dsonar.projectKey=inforush \
@@ -50,7 +50,9 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker compose build'
+                dir('inforush') {
+                    sh 'docker compose build'
+                }
             }
         }
 
@@ -59,7 +61,9 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh 'docker compose up -d'
+                dir('inforush') {
+                    sh 'docker compose up -d'
+                }
             }
         }
     }
