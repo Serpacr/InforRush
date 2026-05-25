@@ -20,25 +20,31 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean install -U -DskipTests'
+                dir('backend') {
+                    sh 'mvn clean install -U -DskipTests'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test -B'
+                dir('backend') {
+                    sh 'mvn test -B'
+                }
             }
         }
 
         stage('SonarQube') {
             steps {
-                sh """
-                mvn clean verify sonar:sonar \
-                -Dsonar.projectKey=inforush \
-                -Dsonar.host.url=${SONAR_HOST_URL} \
-                -Dsonar.login=${SONAR_TOKEN} \
-                -B
-                """
+                dir('backend') {
+                    sh """
+                    mvn clean verify sonar:sonar \
+                    -Dsonar.projectKey=inforush \
+                    -Dsonar.host.url=${SONAR_HOST_URL} \
+                    -Dsonar.login=${SONAR_TOKEN} \
+                    -B
+                    """
+                }
             }
         }
 
