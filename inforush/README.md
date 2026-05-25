@@ -12,15 +12,15 @@ Portal web de curadoria e publicação de conteúdo sobre animes — Projeto Fin
 | Auth | Spring Security + JWT |
 | Docs | Swagger / OpenAPI 3 |
 | Containers | Docker + Docker Compose |
-| CI/CD | Jenkins |
-| Qualidade | SonarQube |
+| CI/CD | GitHub Actions |
+| Qualidade | SonarCloud |
 | Versionamento | Git + GitFlow |
 
 ## 🚀 Como executar
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/SEU_USUARIO/InfoRush.git
+git clone https://github.com/Serpacr/InforRush.git
 cd InfoRush
 
 # 2. Suba todos os serviços
@@ -68,8 +68,24 @@ InfoRush/
 main      → produção
 develop   → integração
 feature/* → novas features
-release/* → preparação de versão
+fix/*     → correções
 ```
+
+## 🔄 Pipeline (GitHub Actions)
+
+A cada push em `main` ou `develop`, a pipeline executa:
+
+1. **Backend** — `mvn clean verify` (testes + cobertura JaCoCo)
+2. **Frontend** — `npm ci` + `npm run build`
+3. **SonarCloud** — análise de qualidade e quality gate
+4. **Docker** — `docker compose build`
+
+Arquivo: `.github/workflows/ci.yml`
+
+### SonarCloud
+
+- Projeto: [Serpacr_InforRush](https://sonarcloud.io/project/overview?id=Serpacr_InforRush)
+- Secret necessário no GitHub: `SONAR_TOKEN`
 
 ## 👥 Integrantes
 
