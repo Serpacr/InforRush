@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+    }
+
     environment {
         SONAR_HOST_URL = 'http://sonarqube:9000'
         SONAR_TOKEN    = credentials('sonar-token')
