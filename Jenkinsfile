@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests -B'
+                sh 'mvn clean install -U -DskipTests'
             }
         }
 
@@ -33,7 +33,7 @@ pipeline {
         stage('SonarQube') {
             steps {
                 sh """
-                mvn sonar:sonar \
+                mvn clean verify sonar:sonar \
                 -Dsonar.projectKey=inforush \
                 -Dsonar.host.url=${SONAR_HOST_URL} \
                 -Dsonar.login=${SONAR_TOKEN} \
