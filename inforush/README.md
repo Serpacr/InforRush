@@ -20,7 +20,7 @@ Portal web de curadoria e publicação de conteúdo sobre animes — Projeto Fin
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/SEU_USUARIO/InfoRush.git
+git clone https://github.com/Serpacr/InfoRush.git
 cd InfoRush
 
 # 2. Suba todos os serviços
