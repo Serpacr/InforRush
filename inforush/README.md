@@ -7,7 +7,7 @@ Portal web de curadoria e publicação de conteúdo sobre animes — Projeto Fin
 | Camada | Tecnologia |
 |--------|-----------|
 | Frontend | React 18 + Vite |
-| Backend | Java 17 + Spring Boot 3.2 |
+| Backend | Java 21 + Spring Boot 3.2 |
 | Banco | PostgreSQL 16 |
 | Auth | Spring Security + JWT |
 | Docs | Swagger / OpenAPI 3 |
@@ -21,7 +21,7 @@ Portal web de curadoria e publicação de conteúdo sobre animes — Projeto Fin
 ```bash
 # 1. Clone o repositório
 git clone https://github.com/Serpacr/InforRush.git
-cd InfoRush
+cd InforRush/inforush
 
 # 2. Suba todos os serviços
 docker compose up --build
@@ -55,10 +55,11 @@ docker compose down -v         # Para e apaga o banco
 
 ```
 InfoRush/
-├── backend/       # Spring Boot + JPA + Security + JWT + Swagger
-├── frontend/      # React + Vite
-├── docker-compose.yml
-├── Jenkinsfile
+├── inforush/
+│   ├── backend/       # Spring Boot + JPA + Security + JWT + Swagger
+│   ├── frontend/      # React + Vite
+│   └── docker-compose.yml
+├── .github/workflows/ # GitHub Actions CI
 └── sonar-project.properties
 ```
 
@@ -91,4 +92,4 @@ Arquivo: `.github/workflows/ci.yml`
 
 | Nome | RA |
 |------|----|
-| (Seu nome) | (Seu RA) |
+| Caio Serpa | 2024110220047 |
