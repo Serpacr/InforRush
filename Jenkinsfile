@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo '🔨 Compilando backend (Maven)...'
                 dir('inforush/backend') {
-                    sh 'mvn clean install -U -DskipTests -B'
+                    sh ' mvn clean package -DskipTests'
                 }
             }
         }
