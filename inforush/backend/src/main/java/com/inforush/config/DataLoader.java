@@ -43,7 +43,7 @@ public class DataLoader {
                 User admin = new User();
                 admin.setName("Admin InfoRush");
                 admin.setEmail("admin@inforush.com");
-                admin.setPassword(passwordEncoder.encode("admin123"));
+                admin.setPassword(passwordEncoder.encode(System.getenv().getOrDefault("ADMIN_PASSWORD", "admin123")));
                 admin.setRole(User.Role.ADMIN);
                 userRepository.save(admin);
 
@@ -97,3 +97,4 @@ public class DataLoader {
         });
     }
 }
+
